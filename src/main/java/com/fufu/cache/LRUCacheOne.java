@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 /**
  * Created by zhoujunfu on 2018/4/13.
+ * LRU缓存，通过HashMap和链表实现
  */
 public class LRUCacheOne<K, V> {
 

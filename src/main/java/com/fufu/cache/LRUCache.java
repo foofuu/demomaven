@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * Created by zhoujunfu on 2018/4/11.
+ * LRU缓存，通过继承LinkedHashMap实现
  */
 public class LRUCache<K,V> extends LinkedHashMap<K, V> {
     private final int MAX_CACHE_SIZE;
