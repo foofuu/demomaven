@@ -9,9 +9,7 @@ public class Fibonacci {
         if (n < 1) {
             return -1;
         }
-        if (n == 1) {
-            return 1;
-        } else if (n == 2) {
+        if (n <= 2) {
             return 1;
         } else {
             return fibonacci(n-1) + fibonacci(n-2);
@@ -22,10 +20,13 @@ public class Fibonacci {
         if (n < 1) {
             return -1;
         }
+        if (n <= 2) {
+            return 1;
+        }
         int a = 1;
         int b = 1;
         int c = 0;
-        for (int i = 0; i < n - 1; i++) {
+        for (int i = 0; i < n - 2; i++) {
             c = a + b;
             a = b;
             b = c;
@@ -34,6 +35,8 @@ public class Fibonacci {
     }
 
     public static void main(String[] args) {
-        System.out.println(fibonacci(1));
+        for (int i = 1; i < 10; i++) {
+            System.out.println(fibonacci(i));
+        }
     }
 }
