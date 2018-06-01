@@ -14,7 +14,7 @@ import java.io.IOException;
  * Created by zhoujunfu on 2018/5/31.
  */
 public class DataWatcher implements Watcher, Runnable {
-    private static final String connectString = "";
+    private static final String connectString = "198.13.56.226:2181";
 
     private static final int sessionTimeout = 5000;
 

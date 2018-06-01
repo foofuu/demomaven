@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ApiOperatorDemo {
 
-    private static final String connectString = "";
+    private static final String connectString = "198.13.56.226:2181";
 
     private static final int sessionTimeout = 5000;
 
