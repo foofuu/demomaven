@@ -7,6 +7,7 @@ import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.data.ACL;
 import org.apache.zookeeper.data.Stat;
 import org.springframework.util.CollectionUtils;
 
@@ -239,13 +240,41 @@ public class ApiOperatorDemo {
         return stat == null ? false : true;
     }
 
+    /**
+     * 异步检测节点是否存在
+     * @param path
+     */
     public void existsAsync(String path) {
+        if (StringUtils.isBlank(path)) {
+            throw new RuntimeException("existsAsync error, null path or data!");
+        }
 
+        CountDownLatch countDownLatch = new CountDownLatch(1);
+        zooKeeper.exists(path, false, new AsyncCallback.StatCallback() {
+            @Override
+            public void processResult(int rc, String pth, Object o, Stat stat) {
+                System.out.println("rc: " + rc + ", path: " + pth + ", context: " + o);
+            }
+        }, "context");
+        try {
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 权限控制
+     * @param scheme
+     * @param auth
+     */
+    public void addACL(String scheme, byte[] auth) {
+        zooKeeper.addAuthInfo(scheme, auth);
     }
 
 
     public static void main(String[] args) throws IOException, InterruptedException {
         ApiOperatorDemo apiOperatorDemo = new ApiOperatorDemo();
-        apiOperatorDemo.getDataAsync("/MyConfig");
+        apiOperatorDemo.createSync("/aclnode/dsf", "test");
     }
 }
