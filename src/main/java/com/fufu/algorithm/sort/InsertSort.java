@@ -14,7 +14,7 @@ public class InsertSort {
         for (int i = 1; i < a.length; i++) {
             int temp = a[i];
             int j = i - 1;
-            while (j > 0 && a[j] > temp) {
+            while (j >= 0 && a[j] > temp) {
                 a[j+1] = a[j];
                 j--;
             }
@@ -28,7 +28,7 @@ public class InsertSort {
         }
 
         for (int i = 1; i < arr.length; i ++) {
-            for (int j=i-1;j>0;j++) {
+            for (int j=i-1;j>=0;j++) {
                 if (arr[j] < arr[i]) {
                     break;
                 }
