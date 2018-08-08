@@ -79,8 +79,8 @@ public class QuickSort {
     }
 
     public static void swap(int arr[], int low, int high) {
-        int tmp = arr[low];
-        arr[low] = arr[high];
-        arr[high] = tmp;
+        arr[low] = arr[low] + arr[high];
+        arr[high] = arr[low] - arr[high];
+        arr[low] = arr[low] -  arr[high];
     }
 }
