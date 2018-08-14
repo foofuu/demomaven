@@ -1,4 +1,4 @@
-package com.fufu.algorithm.jvm;
+package com.fufu.jvm;
 
 /**
  * Created by zhoujunfu on 2018/8/13.
