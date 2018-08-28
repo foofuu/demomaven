@@ -1,6 +1,5 @@
-package com.fufu.spring;
+package com.fufu.spring.lifecycle;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**

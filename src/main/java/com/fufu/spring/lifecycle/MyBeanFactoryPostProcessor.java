@@ -1,4 +1,4 @@
-package com.fufu.spring;
+package com.fufu.spring.lifecycle;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
