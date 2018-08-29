@@ -30,7 +30,6 @@ public class UserInfoServiceImpl implements UserInfoService{
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    @Transactional(propagation = Propagation.REQUIRED)
     public void addUser(UserInfo userInfo) {
         if (userInfo == null) {
             return;
