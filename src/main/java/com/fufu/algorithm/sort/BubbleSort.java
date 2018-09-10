@@ -18,11 +18,22 @@ public class BubbleSort {
             //内层：每次循环需要两两比较的次数，每次比较后，都会将当前最大的数放到最后位置，所以每次比较次数递减一次
             for (int j = 0; j < length - 1 - i; j++) {
                 if (array[j] > array[j+1]) {
-                    int tmp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = tmp;
+                    //交换数组array的j和j+1位置的数据
+                    swapByTemp(array, j, j+1);
                 }
             }
         }
+    }
+
+    /**
+     * 通过临时变量交换数组array的i和j位置的数据
+     * @param array 数组
+     * @param i 下标i
+     * @param j 下标j
+     */
+    public static void swapByTemp(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 }

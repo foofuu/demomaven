@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="star" class="com.fufu.proxy.Star">
+        <property name="name" value="Eminem"/>
+    </bean>
+
+    <bean id="agentAdvisorXML" class="com.fufu.spring.aop.AgentAdvisorXML"/>
+
+     <!--Spring基于Xml的切面-->
+     <aop:config>
+         <!-- 定义切点函数 -->
+         <aop:pointcut id="singPointCut" expression="execution(* com.fufu.proxy.Star.sing(..))"/>
+         <!-- 定义切面 order 定义优先级,值越小优先级越大-->
+         <aop:aspect ref="agentAdvisorXML" order="0">
+             <!--前置通知-->
+             <aop:before method="getMoney" pointcut-ref="singPointCut"/>
+             <!--后置通知-->
+             <aop:after method="writeReceipt" pointcut-ref="singPointCut"/>
+         </aop:aspect>
+     </aop:config>
+
+</beans>

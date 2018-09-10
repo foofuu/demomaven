@@ -5,7 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * Created by zhoujunfu on 2018/8/16.
  */
-public class Main {
+public class  Main {
 
     public static void main(String[] args) {
         System.out.println("现在开始初始化容器");

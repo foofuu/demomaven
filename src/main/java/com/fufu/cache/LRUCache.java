@@ -12,6 +12,7 @@ public class LRUCache<K,V> extends LinkedHashMap<K, V> {
 
 
     public LRUCache(int max_cache_size) {
+        // 设置大小，使其永远无法扩容
         super((int)Math.ceil(max_cache_size/0.75), 0.75f, true);
         MAX_CACHE_SIZE = max_cache_size;
     }
