@@ -9,9 +9,44 @@ public class Demo {
 
     public static void main(String[] args) {
         int[] array = {10, 20, 5, 4};
-        insertSort(array);
-        System.out.println(Arrays.toString(array));
+        mergeSort(array);
+        System.out.println(Arrays.toString(mergeSort(array)));
 
+    }
+
+    public static int[] mergeSort(int[] a) {
+        if (a == null || a.length <= 1) {
+            return a;
+        }
+
+        int middle = a.length >> 1;
+
+        int[] left = Arrays.copyOfRange(a, 0, middle);
+        int[] right = Arrays.copyOfRange(a, middle, a.length);
+
+        return merge(mergeSort(left), mergeSort(right));
+    }
+
+    public static int[] merge(int[] a, int[] b) {
+        int i = 0, j = 0, k = 0;
+        int[] result = new int[a.length + b.length];
+
+        while (i < a.length && j < b.length) {
+            if (a[i] <= b[j]) {
+                result[k++] = a[i++];
+            } else {
+                result[k++] = b[j++];
+            }
+        }
+
+        while (i < a.length) {
+            result[k++] = a[i++];
+        }
+
+        while (j < b.length) {
+            result[k++] = b[j++];
+        }
+        return result;
     }
 
     /**
