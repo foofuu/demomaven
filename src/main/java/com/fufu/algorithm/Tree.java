@@ -27,7 +27,7 @@ public interface Tree<T extends Comparable> {
 
     T findMax();
 
-    BinaryNode findNode(T data);
+    TreeNode findNode(T data);
 
     boolean contains(T data) throws Exception;
 

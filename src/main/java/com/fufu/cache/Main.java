@@ -24,5 +24,10 @@ public class Main {
        System.out.println("===get key 1===");
        cacheOne.get(1);
        System.out.println(cacheOne.toString());
+
+        Integer a = 5;
+        if (a != null && a == 5 || a == 4) {
+            System.out.println("in ");
+        }
     }
 }
