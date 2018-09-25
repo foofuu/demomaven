@@ -17,5 +17,11 @@ public class Main {
         params.put("projectToken","");
         params.put("sessionToken", "");
 
+        String test = "野马;";
+        String[] split = test.split(";");
+        for (String item : split) {
+            System.out.println(item);
+        }
+
     }
 }

@@ -1,5 +1,12 @@
 package com.fufu.cache;
 
+import com.fufu.spring.lifecycle.Car;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 /**
  * Created by zhoujunfu on 2018/4/11.
  */
@@ -29,5 +36,33 @@ public class Main {
         if (a != null && a == 5 || a == 4) {
             System.out.println("in ");
         }
+
+        System.out.println("健康,我的".replaceAll(",", "/"));
+
+
+        List< Car> list = new ArrayList<>();
+
+        Car car1 = new Car();
+        car1.setName("xxx");
+        Car car2 = new Car();
+        car2.setName("yyy");
+
+        list.add(car1);
+        list.add(car2);
+
+
+       String abn =  list.stream().map(Car::getName).collect(Collectors.joining(",")).toString();
+
+
+        Map<String, Car> collect = list.stream().collect(Collectors.toMap(Car::getName, car -> car));
+
+
+
+        collect.get("xxx").setPrice(123);
+
+        System.out.println();
+
+
+
     }
 }
